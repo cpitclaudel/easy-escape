@@ -44,7 +44,6 @@ Good candidates include the following:
   ⇘ SOUTH EAST DOUBLE ARROW (typed as '?⇘')
   ⦥ MATHEMATICAL REVERSED ANGLE WITH UNDERBAR (typed as '?⦥')
   ⦣ MATHEMATICAL REVERSED ANGLE (typed as '?⦣')
-  🔧 WRENCH (typed as '?🔧')
   ⧹ BIG REVERSE SOLIDUS (typed as '?⧹')
 Most of these characters require non-standard fonts to display properly, however."
   :group 'easy-escape)
@@ -67,6 +66,7 @@ Search ends at LIMIT."
   "Compose characters from START to (+ 2 START) into `easy-escape-character'."
   (compose-region start (+ 2 start) easy-escape-character))
 
+;;;###autoload
 (define-minor-mode easy-escape-mode
   "Compose escape signs together to make regexps more readable.
 When this mode is active, \\\\ in strings is displayed as a
