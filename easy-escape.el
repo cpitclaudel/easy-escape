@@ -33,7 +33,7 @@
   :group 'easy-escape)
 
 (defcustom easy-escape-character ?\\
-  "Character by which \\\\ is replaced when `easy-escape-mode' is active.
+  "Character by which \\\\ is replaced when `easy-escape-minor-mode' is active.
 Good candidates include the following:
   \\ REVERSE SOLIDUS (the default, typed as '?\\\\')
   ╲ BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT (typed as '?╲')
@@ -67,7 +67,7 @@ Search ends at LIMIT."
   (compose-region start (+ 2 start) easy-escape-character))
 
 ;;;###autoload
-(define-minor-mode easy-escape-mode
+(define-minor-mode easy-escape-minor-mode
   "Compose escape signs together to make regexps more readable.
 When this mode is active, \\\\ in strings is displayed as a
 single \\, fontified using `easy-escape-face' and composed into
