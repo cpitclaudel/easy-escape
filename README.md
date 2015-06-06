@@ -2,7 +2,7 @@
 
 ![Easy-escape: before and after](img/easy-escape.png)
 
-`easy-escape-minor-mode` composes double backslashes (escape characters) into single backslashes, and highlights them to improve readability. For example, `easy-escape` displays `"\\(?:\\_<\\\\newcommand\\_>\\s-*\\)?"` as `"\(?:\_<\\newcommand\_>\s-*\)?"`. The underlying buffer text is not modified.
+`easy-escape-minor-mode` composes double backslashes (escape characters) into single backslashes, and highlights them to improve readability. The underlying buffer text is not modified.
 
 The default is to use a single \ character instead of two, but the character used and its color can be customized using `easy-escape-face` and `easy-escape-character`.
 
