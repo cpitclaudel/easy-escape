@@ -1,14 +1,34 @@
 ;;; easy-escape.el --- Improve readability of escape characters in regular expressions -*- lexical-binding:t -*-
 
+;; Copyright (C) 2015  Clément Pit--Claudel
+;; Author: Clément Pit--Claudel <clement.pitclaudel@live.com>
+;; URL: https://github.com/cpitclaudel/company-coq
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
 ;;; Commentary:
+
 ;; `easy-escape-minor-mode' composes double backslashes (escape characters) into
-;; single backslashes, and highlights them to improve readability.  The default
-;; it to use a single \ character instead of two, but the character used and its
-;; color can be customized using `easy-escape-face' and `easy-escape-character'
-;; (which see).
+;; single backslashes, and highlights them to improve readability.
 ;;
 ;; For example, `easy-escape` displays "\\(?:\\_<\\\\newcommand\\_>\\s-*\\)?"
 ;; as "\(?:\_<\\newcommand\_>\s-*\)?". The underlying text is not modified.
+;;
+;; The default it to use a single \ character instead of two, but the character
+;; used and its color can be customized using `easy-escape-face' and
+;; `easy-escape-character' (which see).
 ;;
 ;; Suggested setup:
 ;;   (add-hook 'lisp-mode-hook 'easy-escape-minor-mode)
