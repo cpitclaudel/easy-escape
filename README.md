@@ -45,17 +45,19 @@ This will be valid if the package gets accepted on MELPA:
 
 ## Fine-tuning
 
-If you find the distinction between the fontified double-slash and the
+* `easy-escape-minor-mode` is only enabled for lisp derivatives by default. To enable in other modes, use `(add-hook 'YOUR-MODE-HOOK 'easy-escape-minor-mode)`.
+
+* If you find the distinction between the fontified double-slash and the
 single slash too subtle, try the following:
 
-* Adjust the foreground of `easy-escape-face`:
+    * Adjust the foreground of `easy-escape-face`:
 
-    ```elisp
-    (set-face-attribute 'easy-escape-face nil :foreground "red")
-    ```
+        ```elisp
+        (set-face-attribute 'easy-escape-face nil :foreground "red")
+        ```
 
-* Set `easy-escape-character` to a different character:
+    * Set `easy-escape-character` to a different character:
 
-    ```elisp
-    (setq easy-escape-character ?╲)
-    ```
+        ```elisp
+        (setq easy-escape-character ?╲)
+        ```

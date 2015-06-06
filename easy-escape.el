@@ -1,8 +1,10 @@
 ;;; easy-escape.el --- Improve readability of escape characters in regular expressions -*- lexical-binding:t -*-
 
-;; Copyright (C) 2015  Clément Pit--Claudel
+;; Copyright (C) 2015 Clément Pit--Claudel
 ;; Author: Clément Pit--Claudel <clement.pitclaudel@live.com>
-;; URL: https://github.com/cpitclaudel/company-coq
+;; Version: 0.1
+;; Keywords: convenience, lisp, tools
+;; URL: https://github.com/cpitclaudel/easy-escape
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -17,14 +19,13 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 ;;; Commentary:
 
 ;; `easy-escape-minor-mode' composes double backslashes (escape characters) into
 ;; single backslashes, and highlights them to improve readability.
 ;;
 ;; For example, `easy-escape` displays "\\(?:\\_<\\\\newcommand\\_>\\s-*\\)?"
-;; as "\(?:\_<\\newcommand\_>\s-*\)?". The underlying text is not modified.
+;; as "\(?:\_<\\newcommand\_>\s-*\)?".  The underlying text is not modified.
 ;;
 ;; The default it to use a single \ character instead of two, but the character
 ;; used and its color can be customized using `easy-escape-face' and
@@ -71,7 +72,7 @@ Most of these characters require non-standard fonts to display properly, however
 (defconst easy-escape--keywords
   '((easy-escape--mark-escapes (0 (easy-escape--compose (match-beginning 0)))
                                (0 'easy-escape-face append)))
-  "Font-lock keyword list used internally")
+  "Font-lock keyword list used internally.")
 
 (defun easy-escape--in-string-p (pos)
   "Indicate whether POS is inside of a string."
