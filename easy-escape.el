@@ -48,6 +48,11 @@ Good candidates include the following:
 Most of these characters require non-standard fonts to display properly, however."
   :group 'easy-escape)
 
+(defconst easy-escape--keywords
+  '((easy-escape--mark-escapes (0 (easy-escape--compose (match-beginning 0)))
+                               (0 'easy-escape-face append)))
+  "Font-lock keyword list used internally")
+
 (defun easy-escape--in-string-p (pos)
   "Indicate whether POS is inside of a string."
   (let ((face (get-text-property pos 'face)))
@@ -78,10 +83,16 @@ and the single slash too subtle, try the following:
 
 * Adjust the foreground of `easy-escape-face'
 * Set `easy-escape-character' to a different character."
-  nil " ez-esc" nil
-  (font-lock-add-keywords nil '((easy-escape--mark-escapes (0 (easy-escape--compose (match-beginning 0)))
-                                                           (0 'easy-escape-face prepend))))
-  (add-to-list 'font-lock-extra-managed-props 'composition))
+  :lighter " ez-esc"
+  :group 'easy-escape
+  (if easy-escape-minor-mode
+      (progn (font-lock-add-keywords nil easy-escape--keywords)
+             (add-to-list (make-local-variable 'font-lock-extra-managed-props) 'composition))
+    (font-lock-remove-keywords nil easy-escape--keywords))
+  (font-lock-flush))
+
+;;;###autoload
+(add-hook 'lisp-mode-hook 'easy-escape-minor-mode)
 
 (provide 'easy-escape)
 ;;; easy-escape.el ends here
