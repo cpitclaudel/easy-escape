@@ -78,7 +78,7 @@ and the single slash too subtle, try the following:
 
 * Adjust the foreground of `easy-escape-face'
 * Set `easy-escape-character' to a different character."
-  nil "ez-esc" nil
+  nil " ez-esc" nil
   (font-lock-add-keywords nil '((easy-escape--mark-escapes (0 (easy-escape--compose (match-beginning 0)))
                                                            (0 'easy-escape-face prepend))))
   (add-to-list 'font-lock-extra-managed-props 'composition))
