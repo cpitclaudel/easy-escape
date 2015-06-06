@@ -34,18 +34,25 @@ This will be valid if the package gets accepted on MELPA:
 
 2. Install the package: `M-x package-install RET easy-mode RET`
 
+3. Enable `easy-escape-minor-mode` in lisp buffers:
+
+    ```elisp
+    ;; Replace 'lisp-mode-hook with 'prog-mode-hook to enable everywhere
+    (add-hook 'lisp-mode-hook 'easy-escape-minor-mode)
+    ```
+
 ### Alternative setup
 
 1. Download [this file](https://raw.githubusercontent.com/cpitclaudel/easy-escape/master/easy-escape.el)
+
 2. Add this to your .emacs:
 
     ```elisp
     (load-file "PATH-TO-THE-FILE-YOU-JUST-DOWNLOADED")
+    (add-hook 'lisp-mode-hook 'easy-escape-minor-mode)
     ```
 
 ## Fine-tuning
-
-* `easy-escape-minor-mode` is only enabled for lisp derivatives by default. To enable in other modes, use `(add-hook 'YOUR-MODE-HOOK 'easy-escape-minor-mode)`.
 
 * If you find the distinction between the fontified double-slash and the
 single slash too subtle, try the following:

@@ -112,8 +112,5 @@ and the single slash too subtle, try the following:
     (font-lock-remove-keywords nil easy-escape--keywords))
   (font-lock-flush))
 
-;;;###autoload
-(add-hook 'lisp-mode-hook 'easy-escape-minor-mode)
-
 (provide 'easy-escape)
 ;;; easy-escape.el ends here
