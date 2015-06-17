@@ -110,7 +110,9 @@ and the single slash too subtle, try the following:
       (progn (font-lock-add-keywords nil easy-escape--keywords)
              (add-to-list (make-local-variable 'font-lock-extra-managed-props) 'composition))
     (font-lock-remove-keywords nil easy-escape--keywords))
-  (font-lock-flush))
+  (if (>= emacs-major-version 25)
+      (font-lock-flush)
+    (font-lock-fontify-buffer)))
 
 (provide 'easy-escape)
 ;;; easy-escape.el ends here
