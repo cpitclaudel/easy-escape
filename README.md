@@ -39,6 +39,7 @@ This will be valid if the package gets accepted on MELPA:
     ```elisp
     ;; Replace 'lisp-mode-hook with 'prog-mode-hook to enable everywhere
     (add-hook 'lisp-mode-hook 'easy-escape-minor-mode)
+    (add-hook 'emacs-lisp-mode-hook 'easy-escape-minor-mode)
     ```
 
 ### Alternative setup
