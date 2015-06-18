@@ -32,7 +32,7 @@ This will be valid if the package gets accepted on MELPA:
     (package-initialize)
     ```
 
-2. Install the package: `M-x package-install RET easy-mode RET`
+2. Install the package: `M-x package-install RET easy-escape RET`
 
 3. Enable `easy-escape-minor-mode` in lisp buffers:
 
