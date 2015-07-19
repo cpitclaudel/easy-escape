@@ -44,6 +44,8 @@
 
 ;;; Code:
 
+(require 'font-lock)
+
 (defgroup easy-escape nil
   "Improve readability of escape characters"
   :group 'programming)
@@ -112,7 +114,7 @@ and the single slash too subtle, try the following:
     (font-lock-remove-keywords nil easy-escape--keywords))
   (if (>= emacs-major-version 25)
       (font-lock-flush)
-    (font-lock-fontify-buffer)))
+    (with-no-warnings (font-lock-fontify-buffer))))
 
 (provide 'easy-escape)
 ;;; easy-escape.el ends here
