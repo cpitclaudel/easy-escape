@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2016  Clément Pit-Claudel
 
-;; Author: Clément Pit-Claudel <clement@clem-w50-mint>
+;; Author: Clément Pit-Claudel <clement.pitclaudel@live.com>
 ;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -20,12 +20,13 @@
 
 ;;; Commentary:
 
-;; emacs -Q -l ee-screenshot.el -f '~/main'
+;; emacs -Q -l ~/.emacs.d/lisp/screenshot/screenshot.el -l ee-screenshot.el -f '~/main'
 
 ;;; Code:
 
 (add-to-list 'load-path "../")
 (require 'easy-escape)
+(require 'screenshot)
 
 (defvar ~/strs
   '(("^\\([aA]\\)\\(#\\|!\\)\\([ \\t\\n\\v\\r]*\\)[:/]\\(\\\\\\)\\(...\\)$")
@@ -42,29 +43,8 @@
     (goto-char (point-min))
     (set-buffer-modified-p nil)))
 
-(defun ~/capture ()
-  (force-window-update)
-  (redisplay t)
-  (let ((png-fname "easy-escape.png"))
-    (call-process "import" nil nil nil "-window" (frame-parameter nil 'outer-window-id) png-fname)
-    (call-process "mogrify" nil nil nil "-strip" "-matte"
-                  "-bordercolor" (face-attribute 'fringe :background)
-                  "-border" (format "0x%d" (car fringe-mode))
-                  png-fname)
-    (call-process "optipng" nil nil nil "-o3" png-fname))
-  (kill-emacs))
-
 (defun ~/main ()
   (interactive)
-  (menu-bar-mode -1)
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1)
-  (load-theme 'tango t)
-  (set-fringe-mode (cons 8 8))
-  (set-face-attribute 'default nil :family "Ubuntu Mono" :height 110)
-  (set-face-attribute 'mode-line-buffer-id nil :foreground "#eab700")
-  (set-face-attribute 'mode-line nil :foreground "gray60" :background "black")
-  (set-face-attribute 'mode-line-inactive nil :foreground "gray60" :background "black")
   (let ((before (get-buffer-create "*before*"))
         (after (get-buffer-create "*after*")))
     (~/setup before -1 "\n ;; Before:")
@@ -73,9 +53,9 @@
     (switch-to-buffer-other-window after))
   ;; (with-current-buffer before
   (setq-default mode-line-format nil)
-  (set-frame-size nil 72 4)
-  (message nil)
-  (run-with-timer 3 nil #'~/capture))
+  (screenshot-ui-setup 72 4)
+  (run-with-timer 3 nil #'screenshot-capture "easy-escape.png")
+  (run-with-timer 4 nil #'kill-emacs))
 
 (provide 'ee-screenshot)
 ;;; ee-screenshot.el ends here
