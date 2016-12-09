@@ -2,25 +2,13 @@
 
 ![Easy-escape: before and after](img/easy-escape.png)
 
-`easy-escape-minor-mode` composes double backslashes (escape characters) into single backslashes, and highlights them to improve readability. The underlying buffer text is not modified.
+`easy-escape-minor-mode` uses syntax highlighting and composition to make ELisp regular expressions more readable.  More precisely, it hides double backslashes preceding regexp specials (`()|`), composes other double backslashes into single ones, and applies a special face to each. The underlying buffer text is not modified.
 
-The default is to use a single \ character instead of two, but the character used and its color can be customized using `easy-escape-face` and `easy-escape-character`.
-
-## Screenshots
-
-### Using a custom color
-
-![Easy-escape: before and after](img/easy-escape-other-color.png)
-
-### Using a custom character
-
-![Easy-escape: before and after](img/easy-escape-other-character.png)
+The default is to use a single \ character instead of two, and to hide backslashes preceding parentheses or `|`.  The escape character and its color can be customized using `easy-escape-face` and `easy-escape-character` (which see), and backslashes before `()|` can be shown by disabling `easy-escape-hide-escapes-before-delimiters`.
 
 ## Setup
 
 ### MELPA (preferred)
-
-This will be valid if the package gets accepted on MELPA:
 
 1. Setup [MELPA](http://melpa.org/#/getting-started) if you haven't yet
 
@@ -34,7 +22,7 @@ This will be valid if the package gets accepted on MELPA:
 
 2. Install the package: `M-x package-install RET easy-escape RET`
 
-3. Enable `easy-escape-minor-mode` in lisp buffers:
+3. Enable `easy-escape-minor-mode` in Lisp buffers:
 
     ```elisp
     ;; Replace 'lisp-mode-hook with 'prog-mode-hook to enable everywhere
