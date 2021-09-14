@@ -96,7 +96,7 @@ however."
         (and (listp face) (or (memq 'font-lock-doc-face face)
                               (memq 'font-lock-string-face face))))))
 
-(defun easy-escape--mark-in-string (re lim)
+(defun easy-escape--find-in-string (re lim)
   "Find next match for RE before LIM that falls in a string."
   (catch 'found
     (while (re-search-forward re lim t)
@@ -105,11 +105,11 @@ however."
 
 (defun easy-escape--mark-escapes (limit)
   "Search for \\\\ before LIMIT."
-  (easy-escape--mark-in-string "\\(\\\\\\\\\\)" limit))
+  (easy-escape--find-in-string "\\(\\\\\\\\\\)" limit))
 
 (defun easy-escape--mark-delims (limit)
   "Search for a delimiter or alternation before LIMIT."
-  (easy-escape--mark-in-string "\\(\\\\\\\\\\)\\([()|]\\)" limit))
+  (easy-escape--find-in-string "\\(\\\\\\\\\\)\\([()|]\\)" limit))
 
 (defun easy-escape--compose (n char)
   "Compose match group N into CHAR."
