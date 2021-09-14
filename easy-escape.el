@@ -53,17 +53,17 @@
 (require 'font-lock)
 
 (defgroup easy-escape nil
-  "Improve readability of escape characters"
+  "Improve readability of escape characters."
   :group 'programming)
 
 (defface easy-escape-face
   '((t :weight bold))
-  "Face used to highlight \\\\ in strings"
+  "Face used to highlight \\\\ in strings."
   :group 'easy-escape)
 
 (defface easy-escape-delimiter-face
   '((t :weight bold :slant normal :inherit font-lock-warning-face))
-  "Face used to highlight groups and alternations in strings"
+  "Face used to highlight groups and alternations in strings."
   :group 'easy-escape)
 
 (defcustom easy-escape-character ?\\
@@ -81,7 +81,8 @@ Good candidates include the following:
   ⧹ BIG REVERSE SOLIDUS (typed as '?⧹')
 Most of these characters require non-standard fonts to display properly,
 however."
-  :group 'easy-escape)
+  :group 'easy-escape
+  :type 'character)
 
 (defcustom easy-escape-hide-escapes-before-delimiters t
   "Whether to hide \\\\ when it precedes one of `(', `|', and `)'."
