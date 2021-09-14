@@ -1,4 +1,4 @@
-;;; easy-escape.el --- Improve readability of escape characters in regular expressions
+;;; easy-escape.el --- Improve readability of escape characters in regular expressions  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2015 Clément Pit--Claudel
 ;; Author: Clément Pit--Claudel <clement.pitclaudel@live.com>
