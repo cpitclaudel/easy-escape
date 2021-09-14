@@ -87,8 +87,9 @@ however."
   :group 'easy-escape
   :type 'boolean)
 
+;; FIXME use ppss?
 (defun easy-escape--in-string-p (pos)
-  "Indicate whether POS is inside of a string."
+  "Indicate whether POS is inside a string."
   (let ((face (get-text-property pos 'face)))
     (or (eq 'font-lock-doc-face face)
         (eq 'font-lock-string-face face)
