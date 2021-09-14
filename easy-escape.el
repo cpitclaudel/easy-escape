@@ -105,11 +105,11 @@ however."
       (when (easy-escape--in-string-p (match-beginning 0))
         (throw 'found t)))))
 
-(defun easy-escape--mark-escapes (limit)
+(defun easy-escape--find-escape (limit)
   "Search for \\\\ before LIMIT."
   (easy-escape--find-in-string "\\(\\\\\\\\\\)" limit))
 
-(defun easy-escape--mark-delims (limit)
+(defun easy-escape--find-delim (limit)
   "Search for a delimiter or alternation before LIMIT."
   (easy-escape--find-in-string "\\(\\\\\\\\\\)\\([()|]\\)" limit))
 
@@ -118,9 +118,9 @@ however."
   (compose-region (match-beginning n) (match-end n) char))
 
 (defconst easy-escape--keywords
-  '((easy-escape--mark-escapes
+  '((easy-escape--find-escape
      (0 (progn (easy-escape--compose 0 easy-escape-character) 'easy-escape-face) prepend))
-    (easy-escape--mark-delims
+    (easy-escape--find-delim
      (0 (progn (easy-escape--compose 0 (char-after (match-beginning 2))) 'easy-escape-delimiter-face) prepend)))
   "Font-lock keyword list used internally.")
 
