@@ -1,7 +1,6 @@
 ;;; ee-screenshot.el --- Prepare a screenshot for easy-escape  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2016  Clément Pit-Claudel
-
+;; Copyright (C) 2016 Free Software Foundation, Inc.
 ;; Author: Clément Pit-Claudel <clement.pitclaudel@live.com>
 ;; Keywords:
 
